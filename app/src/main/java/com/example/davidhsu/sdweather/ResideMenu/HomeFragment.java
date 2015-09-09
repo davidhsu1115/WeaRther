@@ -41,6 +41,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.davidhsu.sdweather.GPSTracker;
 import com.example.davidhsu.sdweather.MainActivity;
 import com.example.davidhsu.sdweather.R;
 import com.example.davidhsu.sdweather.weather.AlertDialogFragment;
@@ -107,7 +108,11 @@ public class HomeFragment extends Fragment {
     private ImageView mIconImageView;
     private ImageView mRefreshImageView;
 
-    
+
+    private double latitude;
+    private double longitude;
+    private double doubleLongitude;
+    private double doubleLatitude;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.home, container, false);  //parentView = ..... //R.layout.home
@@ -124,24 +129,28 @@ public class HomeFragment extends Fragment {
         mRefreshImageView = (ImageView)parentView.findViewById(R.id.refreshImageView);
         mLocationLabel = (TextView)parentView.findViewById(R.id.locationLabel);
 
-         final double latitude = 25.0329694;
-         final double longitude = 121.5654177;
+         //final double latitude = 25.0329694;
+         //final double longitude = 121.5654177;
 
-
-
-
-
-
+        //TrackGPS
+        GPSTracker gpsTracker = new GPSTracker(getActivity().getApplicationContext());
+        if (gpsTracker.getIsGPSTrackingEnabled())
+        {
+            doubleLatitude = gpsTracker.getLatitude();
+            //latitude = doubleLatitude;
+            doubleLongitude = gpsTracker.getLongitude();
+            //longitude = doubleLongitude;
+        }
 
         mRefreshImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                getForecast(latitude, longitude);
+                getForecast(doubleLatitude, doubleLongitude);  //latitude, longitude
             }
         });
 
-        getForecast(latitude, longitude);
+        getForecast(doubleLatitude, doubleLongitude); //latitude, longitude
 
 
         Log.d(TAG, "Main UI is running!!");
