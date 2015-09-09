@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="color_black">#000000</color>
+    <color name="color_blue">#000050</color>
+    <color name="color_red">#AA0000</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="lightblue1">#9ed3ff</color>
+
+    //the code under this line is for the slidingTab
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorPrimaryLight">#B3E5FC</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="colorHighlight">#B6B6B6</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="colorDivider">#B6B6B6</color>
+    <color name="tabsScrollColor">#000050</color>
+
+    <!-- Color data from rex weather-->
+    <color name="brand_main">#33B5E5</color>
+    <color name="text">#333333</color>
+    <color name="text_de_emphasized">#666666</color>
+    <color name="text_faint">#999999</color>
+
+</resources>

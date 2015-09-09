@@ -1,0 +1,111 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="fragment_text">
+        <item name="android:textColor">#ffacacac</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+    <style name="textBig" parent="Base.TextAppearance.AppCompat.Large">
+        <item name="android:textSize">@dimen/textBig.size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="textSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/textSmall.size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <!-- Weather info style -->
+    <style name="textVerySmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/textVerySmall.size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="textSmallWeather" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/textSmallWeather.size</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Style for row layout -->
+    <style name="dayText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/dayText.size</item>
+    </style>
+    <style name="infoText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">@dimen/infoText.size</item>
+    </style>
+
+    <style name="infoTempMinText" parent="infoText">
+        <item name="android:textColor">@color/color_blue</item>
+    </style>
+
+    <style name="infoTempMaxText" parent="infoText">
+        <item name="android:textColor">@color/color_red</item>
+    </style>
+
+    <style name="labelText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/labelText.size</item>
+        <item name="android:background">#ff9ed3ff</item>
+    </style>
+
+    <style name="tempText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">@dimen/tempText.size</item>
+    </style>
+
+    <style name="fragmentAnim">
+        <item name="android:fragmentFadeEnterAnimation">@anim/fade_in</item>
+        <item name="android:fragmentFadeExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <!-- style form rex weather  -->
+    <style name="BaseText" parent="android:TextAppearance.Holo.Large">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="LocationText" parent="BaseText">
+        <item name="android:textSize">@dimen/location_text</item>
+        <item name="android:ellipsize">none</item>
+    </style>
+
+    <style name="CurrentTemperatureText" parent="BaseText">
+        <item name="android:textSize">@dimen/current_temperature_text</item>
+        <item name="android:textColor">@color/brand_main</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">none</item>
+    </style>
+
+    <style name="WeatherForecastListItemText" parent="BaseText">
+        <item name="android:textSize">@dimen/weather_forecast_list_item_text</item>
+        <item name="android:paddingTop">@dimen/list_item_text_padding</item>
+        <item name="android:paddingBottom">@dimen/list_item_text_padding</item>
+        <item name="android:layout_width">0dp</item>
+        <!-- To force the text views into columns -->
+    </style>
+
+    <style name="WeatherForecastListItemTextEmphasis" parent="WeatherForecastListItemText">
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="WeatherForecastListItemTextDeEmphasis" parent="WeatherForecastListItemText">
+        <item name="android:textColor">@color/text_de_emphasized</item>
+    </style>
+
+    <style name="AttributionText" parent="BaseText">
+        <item name="android:textSize">@dimen/attribution_text</item>
+        <item name="android:textColor">@color/text_faint</item>
+    </style>
+
+</resources>
