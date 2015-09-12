@@ -57,7 +57,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Home");
         itemProfile  = new ResideMenuItem(this, R.drawable.icon_profile,  "Camera");
         itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Closet");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
+        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Match");
 
         itemHome.setOnClickListener(this);
         itemProfile.setOnClickListener(this);
