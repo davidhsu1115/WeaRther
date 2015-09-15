@@ -54,18 +54,18 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         // create menu items;
         itemHome     = new ResideMenuItem(this, R.drawable.icon_weather,     "Weather");
         itemProfile  = new ResideMenuItem(this, R.drawable.icon_camera,  "Camera");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_closet, "Closet");
-        //itemSettings = new ResideMenuItem(this, R.drawable.icon_match, "Match");
+        //itemCalendar = new ResideMenuItem(this, R.drawable.icon_closet, "Closet");
+        itemSettings = new ResideMenuItem(this, R.drawable.icon_match, "Match");
 
         itemHome.setOnClickListener(this);
         itemProfile.setOnClickListener(this);
-        itemCalendar.setOnClickListener(this);
-        //itemSettings.setOnClickListener(this);
+        //itemCalendar.setOnClickListener(this);
+        itemSettings.setOnClickListener(this);
 
         resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
         resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
-        //resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
+        //resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_LEFT);
 
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
@@ -100,11 +100,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             changeFragment(new HomeFragment());
         }else if (view == itemProfile){
             changeFragment(new CameraFragment());
-        }else if (view == itemCalendar){
+        }/*else if (view == itemCalendar){
             changeFragment(new CalendarFragment());
-        }/*else if (view == itemSettings){
+        }*/else if (view == itemSettings){
             changeFragment(new SettingsFragment());
-        }*/
+        }
 
         resideMenu.closeMenu();
     }
