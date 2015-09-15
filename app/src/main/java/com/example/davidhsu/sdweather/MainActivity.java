@@ -1,19 +1,17 @@
 package com.example.davidhsu.sdweather;
 
-import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.davidhsu.sdweather.ResideMenu.CalendarFragment;
 import com.example.davidhsu.sdweather.ResideMenu.HomeFragment;
 
-import com.example.davidhsu.sdweather.ResideMenu.ProfileFragment;
+import com.example.davidhsu.sdweather.ResideMenu.CameraFragment;
 import com.example.davidhsu.sdweather.ResideMenu.ResideMenu;
 import com.example.davidhsu.sdweather.ResideMenu.ResideMenuItem;
 import com.example.davidhsu.sdweather.ResideMenu.SettingsFragment;
@@ -101,7 +99,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         if (view == itemHome){
             changeFragment(new HomeFragment());
         }else if (view == itemProfile){
-            changeFragment(new ProfileFragment());
+            changeFragment(new CameraFragment());
         }else if (view == itemCalendar){
             changeFragment(new CalendarFragment());
         }else if (view == itemSettings){
