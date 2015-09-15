@@ -54,10 +54,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         resideMenu.setScaleValue(0.6f);
 
         // create menu items;
-        itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Home");
-        itemProfile  = new ResideMenuItem(this, R.drawable.icon_profile,  "Camera");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Closet");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Match");
+        itemHome     = new ResideMenuItem(this, R.drawable.icon_weather,     "Weather");
+        itemProfile  = new ResideMenuItem(this, R.drawable.icon_camera,  "Camera");
+        itemCalendar = new ResideMenuItem(this, R.drawable.icon_closet, "Closet");
+        itemSettings = new ResideMenuItem(this, R.drawable.icon_match, "Match");
 
         itemHome.setOnClickListener(this);
         itemProfile.setOnClickListener(this);
