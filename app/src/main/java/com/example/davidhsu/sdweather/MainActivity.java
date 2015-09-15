@@ -8,13 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.example.davidhsu.sdweather.ResideMenu.CalendarFragment;
 import com.example.davidhsu.sdweather.ResideMenu.HomeFragment;
 
 import com.example.davidhsu.sdweather.ResideMenu.CameraFragment;
 import com.example.davidhsu.sdweather.ResideMenu.ResideMenu;
 import com.example.davidhsu.sdweather.ResideMenu.ResideMenuItem;
-import com.example.davidhsu.sdweather.ResideMenu.SettingsFragment;
+import com.example.davidhsu.sdweather.ResideMenu.MatchFragment;
 
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
@@ -103,7 +102,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }/*else if (view == itemCalendar){
             changeFragment(new CalendarFragment());
         }*/else if (view == itemSettings){
-            changeFragment(new SettingsFragment());
+            changeFragment(new MatchFragment());
         }
 
         resideMenu.closeMenu();

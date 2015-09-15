@@ -14,7 +14,7 @@ import com.example.davidhsu.sdweather.R;
  * Time: 下午3:28
  * Mail: specialcyci@gmail.com
  */
-public class SettingsFragment extends Fragment {
+public class MatchFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
