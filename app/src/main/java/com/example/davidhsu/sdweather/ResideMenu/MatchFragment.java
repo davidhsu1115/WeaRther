@@ -133,8 +133,9 @@ public class MatchFragment extends Fragment {
     }
 
     private void updateDisplay() {
-        mTextView.setText(mCurrentWeather.getTemperature() +"");
+        mTextView.setText("現在的溫度是 : " + mCurrentWeather.getTemperature() +" 度，比較適合穿....");
 
+        
     }
 
     private CurrentWeather getCurrentDetails(String jsonData) throws JSONException{
