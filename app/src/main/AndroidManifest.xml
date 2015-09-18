@@ -9,9 +9,10 @@
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
 
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/wearther_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
