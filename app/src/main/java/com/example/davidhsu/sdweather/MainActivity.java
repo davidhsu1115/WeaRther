@@ -52,7 +52,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         // create menu items;
         itemHome     = new ResideMenuItem(this, R.drawable.icon_weather,     "Weather");
-        itemProfile  = new ResideMenuItem(this, R.drawable.icon_camera,  "Camera");
+        itemProfile  = new ResideMenuItem(this, R.drawable.icon_closet,  "Closet");
         //itemCalendar = new ResideMenuItem(this, R.drawable.icon_closet, "Closet");
         itemSettings = new ResideMenuItem(this, R.drawable.icon_match, "Match");
 
