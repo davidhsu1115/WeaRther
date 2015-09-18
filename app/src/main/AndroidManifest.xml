@@ -32,12 +32,18 @@
             android:name=".sqlDatabase.InsertActivity"
             android:label="@string/text_Insert"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".sqlDatabase.UpdateActivity"
             android:label="@string/text_Update"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".match"
+            android:label="Match"
+            android:launchMode="singleTop" />
 
     </application>
 

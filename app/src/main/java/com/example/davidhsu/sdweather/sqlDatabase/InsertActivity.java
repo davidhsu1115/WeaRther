@@ -41,9 +41,9 @@ public class InsertActivity extends AppCompatActivity {
     private static final int REQUEST_TAKE_PICTURE = 0;
     private static final int REQUEST_PICK_IMAGE = 1;
 
-    private String[] type = new String[] {"衣服類", "褲子類"};
-    private String[] type1 = new String[]{"襯衫","T恤","毛衣","外套"};
-    private String[][] type2 = new String[][]{{"襯衫","T恤","毛衣","外套"},{"牛仔褲","西裝褲","運動褲","裙子","休閒褲"}};
+    private String[] type = new String[] {"Top", "Bottom"};
+    private String[] type1 = new String[]{"Shirt","T-Shirt","Sweater","Coat"};
+    private String[][] type2 = new String[][]{{"Shirt","T-Shirt","Sweater","Coat"},{"Jeans","Suit Pants","Sweatpants","Skirt","Casual Pants"}};
     private Context context;
 
     ArrayAdapter<String> adapter ;
@@ -80,7 +80,7 @@ public class InsertActivity extends AppCompatActivity {
 
 
         spSleeve = (Spinner) findViewById(R.id.spSleeve);
-        String[] sleeve = {"長", "短"};
+        String[] sleeve = {"Long", "Short"};
         ArrayAdapter<String> adapterSleeve = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, sleeve);
         adapterSleeve
@@ -90,7 +90,7 @@ public class InsertActivity extends AppCompatActivity {
         spSleeve.setOnItemSelectedListener(listener);
 
         spMaterial = (Spinner) findViewById(R.id.spMaterial);
-        String[] material = {"棉", "絲","人工纖維"};
+        String[] material = {"Cotton", "Silk","Artificial Fibers"};
         ArrayAdapter<String> adapterMaterial = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, material);
         adapterMaterial
@@ -245,7 +245,7 @@ public class InsertActivity extends AppCompatActivity {
                 .toString().trim();
 
         if (image == null) {
-            Toast.makeText(this, R.string.msg_NoImage,
+            Toast.makeText(this, "No image",
                     Toast.LENGTH_SHORT).show();
             return;
         }

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.davidhsu.sdweather.R;
+import com.example.davidhsu.sdweather.match;
 import com.example.davidhsu.sdweather.sqlDatabase.InsertActivity;
 import com.example.davidhsu.sdweather.sqlDatabase.MySQLiteOpenHelper;
 import com.example.davidhsu.sdweather.sqlDatabase.Spot;
@@ -51,6 +52,8 @@ public class CameraFragment extends Fragment {
         if (helper == null) {
             helper = new MySQLiteOpenHelper(getActivity());
         }
+        spotList = helper.getAllSpots();
+        showSpots(0);
 
         return cameraParentView;
     }
@@ -141,6 +144,9 @@ public class CameraFragment extends Fragment {
                 showSpots(0);
             }
         });
+
+
+
     }
 
     private void showSpots(int index) {

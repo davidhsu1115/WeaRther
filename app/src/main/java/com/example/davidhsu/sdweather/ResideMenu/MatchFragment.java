@@ -1,6 +1,8 @@
 package com.example.davidhsu.sdweather.ResideMenu;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -10,11 +12,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.davidhsu.sdweather.GPSTracker;
 import com.example.davidhsu.sdweather.R;
+import com.example.davidhsu.sdweather.sqlDatabase.MySQLiteOpenHelper;
+import com.example.davidhsu.sdweather.sqlDatabase.Spot;
 import com.example.davidhsu.sdweather.weather.AlertDialogFragment;
 import com.example.davidhsu.sdweather.weather.CurrentWeather;
 import com.squareup.okhttp.Call;
@@ -27,6 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * User: special
@@ -40,6 +47,14 @@ public class MatchFragment extends Fragment {
     private double doubleLongitude;
     private double doubleLatitude;
     private TextView mTextView;
+    private ImageView ivSpot;
+    private TextView tvId;
+    private MySQLiteOpenHelper helper;
+    private byte[] image;
+    private final int tem = 21;
+    private List<Spot> spotList1;
+    private List<Spot> spotList2;
+    private int index;
 
     public static final String TAG = MatchFragment.class.getSimpleName();
 
@@ -50,6 +65,7 @@ public class MatchFragment extends Fragment {
         matchParentView = inflater.inflate(R.layout.match_layout, container, false);
 
         mTextView = (TextView)matchParentView.findViewById(R.id.tvTemp);
+
 
 
         //TrackGPS
@@ -70,8 +86,102 @@ public class MatchFragment extends Fragment {
         Log.d(TAG, "Main UI is running!!");
 
 
+        if (helper == null) {
+            helper = new MySQLiteOpenHelper(getActivity());
+        }
+        spotList1 =helper.getShortSpots();
+        spotList2 =helper.getLongSpots();
+        showSpotsMatch(0);
+
+        Button btnMatchNext = (Button)matchParentView.findViewById(R.id.btnMatchNext);
+        btnMatchNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index++;
+                if (index >= spotList1.size()) {
+                    index = 0;
+                }
+                showSpotsMatch(index);
+            }
+        });
+
+        Button btnMatchBack = (Button)matchParentView.findViewById(R.id.btnMatchBack);
+        btnMatchBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index--;
+                if (index < 0) {
+                    index = spotList1.size() - 1;
+                }
+                showSpotsMatch(index);
+            }
+        });
+
         return matchParentView;
     }
+
+
+    private void showSpotsMatch(int index) {
+        ivSpot = (ImageView) matchParentView.findViewById(R.id.imageView);
+        //tvId = (TextView) matchParentView.findViewById(R.id.tvId);
+
+
+
+        if (helper == null) {
+            helper = new MySQLiteOpenHelper(getActivity());
+        }
+
+
+
+        if (tem<=24){
+            Spot spot = spotList1.get(index);
+            image = spot.getImage();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0,
+                    spot.getImage().length);
+            ivSpot.setImageBitmap(bitmap);
+            //tvId.setText(Integer.toString(spot.getId()));
+        }
+        else if (tem>=24) {
+            Spot spot = spotList2.get(index);
+            image = spot.getImage();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0,
+                    spot.getImage().length);
+            ivSpot.setImageBitmap(bitmap);
+            //tvId.setText(Integer.toString(spot.getId()));
+        }
+
+    }
+
+    public void onNextClickMatch(View view) {
+        index++;
+        if (index >= spotList1.size()) {
+            index = 0;
+        }
+        showSpotsMatch(index);
+    }
+
+    public void onBackClickMatch(View view) {
+        index--;
+        if (index < 0) {
+            index = spotList1.size() - 1;
+        }
+        showSpotsMatch(index);
+    }
+
+
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (helper != null) {
+            helper.close();
+        }
+    }
+
+
+
+
 
 
     private void getForecast(double latitude, double longitude) {
@@ -133,9 +243,9 @@ public class MatchFragment extends Fragment {
     }
 
     private void updateDisplay() {
-        mTextView.setText("現在的溫度是 : " + mCurrentWeather.getTemperature() +" 度，比較適合穿....");
+        mTextView.setText("現在的溫度是 : " + mCurrentWeather.getTemperature() + " 度，比較適合穿....");
 
-        
+
     }
 
     private CurrentWeather getCurrentDetails(String jsonData) throws JSONException{
