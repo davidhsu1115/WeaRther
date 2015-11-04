@@ -1,6 +1,7 @@
 package com.example.davidhsu.sdweather.ResideMenu;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
@@ -37,6 +38,7 @@ import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +59,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -114,6 +117,12 @@ public class HomeFragment extends Fragment {
     private double doubleLongitude;
     private double doubleLatitude;
 
+    //home fragment layout
+    private RelativeLayout homeLayout;
+
+    //weather background name string
+    private String temperatureBackground;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.home, container, false);  //parentView = ..... //R.layout.home
 //        setUpViews();
@@ -128,6 +137,10 @@ public class HomeFragment extends Fragment {
         mIconImageView = (ImageView)parentView.findViewById(R.id.iconImageView);
         mRefreshImageView = (ImageView)parentView.findViewById(R.id.refreshImageView);
         mLocationLabel = (TextView)parentView.findViewById(R.id.locationLabel);
+        //this is for the home fragment layout
+        homeLayout = (RelativeLayout)parentView.findViewById(R.id.homeFragmentLayout);
+
+
 
          //final double latitude = 25.0329694;
          //final double longitude = 121.5654177;
@@ -228,6 +241,52 @@ public class HomeFragment extends Fragment {
         mPrecipValue.setText(mCurrentWeather.getPrecipChance() + "%");
         mSummaryLabel.setText(mCurrentWeather.getSummary());
         mLocationLabel.setText(mCurrentWeather.getTimeZone());
+
+        temperatureBackground.equals(mCurrentWeather.getIcon());
+        // // TODO: 15/11/4  using switch to set the condition and set the background for the HomeFragment
+        switch(temperatureBackground){
+            case "clear-day":
+                Resources clearDayRes = this.getResources();
+                Drawable clearDaydrawable;
+                clearDaydrawable = clearDayRes.getDrawable(R.drawable.testPicture);
+                homeLayout.setBackground(clearDaydrawable);
+                break;
+            case "clear-night":
+
+                break;
+            case "rain":
+
+                break;
+
+            case "snow":
+
+                break;
+
+            case "sleet":
+
+                break;
+
+            case "wind":
+
+                break;
+
+            case "fog":
+
+                break;
+
+            case "cloudy":
+
+                break;
+
+            case "partly-cloudy-day":
+
+                break;
+
+            case "partly-cloudy-night":
+
+                break;
+
+        }
 
         Drawable drawable = getResources().getDrawable(mCurrentWeather.getIconId());
         mIconImageView.setImageDrawable(drawable);

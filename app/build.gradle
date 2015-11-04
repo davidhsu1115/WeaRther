@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc3"
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         applicationId "com.example.davidhsu.sdweather"
@@ -24,14 +24,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile files('libs/nineoldandroids-library-2.4.0.jar')
-  //  compile files('libs/weatherlib_volleyclient_1.5.5.jar')
+    //  compile files('libs/weatherlib_volleyclient_1.5.5.jar')
     compile files('libs/weatherlib_1.5.7.jar')
-   // compile files('libs/gradle-wrapper.jar')
+    // compile files('libs/gradle-wrapper.jar')
     compile files('libs/rxjava-core-0.20.7.jar')
-   // compile files('libs/retrofit-2.0.0-beta1.jar')
+    // compile files('libs/retrofit-2.0.0-beta1.jar')
     compile files('libs/retrofit-1.9.0.jar')
     compile files('libs/gson-2.3.1.jar')
     compile files('libs/crouton-1.8.3.jar')
