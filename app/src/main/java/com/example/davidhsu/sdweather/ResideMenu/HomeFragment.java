@@ -2,49 +2,23 @@ package com.example.davidhsu.sdweather.ResideMenu;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import rx.schedulers.Schedulers;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.example.davidhsu.sdweather.GPSTracker;
-import com.example.davidhsu.sdweather.MainActivity;
 import com.example.davidhsu.sdweather.R;
 import com.example.davidhsu.sdweather.weather.AlertDialogFragment;
 import com.example.davidhsu.sdweather.weather.CurrentWeather;
@@ -54,27 +28,10 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
-import org.apache.http.HttpException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import retrofit.RetrofitError;
-import rx.Observable;
-import rx.Subscriber;
-import rx.functions.Func1;
-import rx.functions.Func2;
-import rx.schedulers.Schedulers;
-import rx.subscriptions.CompositeSubscription;
 
 /**
  * User: special
@@ -121,7 +78,7 @@ public class HomeFragment extends Fragment {
     private RelativeLayout homeLayout;
 
     //weather background name string
-    private String temperatureBackground;
+    private String temperatureBackground = "";
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         parentView = inflater.inflate(R.layout.home, container, false);  //parentView = ..... //R.layout.home
@@ -220,9 +177,7 @@ public class HomeFragment extends Fragment {
                         }
                     } catch (IOException e) {
                         Log.e(TAG, "Exception caught: ", e);
-                    }
-                    catch (JSONException e)
-                    {
+                    } catch (JSONException e) {
                         Log.e(TAG, "Exception caught: ", e);
                     }
 
@@ -243,50 +198,21 @@ public class HomeFragment extends Fragment {
         mLocationLabel.setText(mCurrentWeather.getTimeZone());
 
         temperatureBackground.equals(mCurrentWeather.getIcon());
-        // // TODO: 15/11/4  using switch to set the condition and set the background for the HomeFragment
-        switch(temperatureBackground){
-            case "clear-day":
-                Resources clearDayRes = this.getResources();
-                Drawable clearDaydrawable;
-                clearDaydrawable = clearDayRes.getDrawable(R.drawable.testPicture);
-                homeLayout.setBackground(clearDaydrawable);
-                break;
-            case "clear-night":
+        // // TODO: 15/11/4  using if else to set the condition and set the background for the HomeFragment
+        //switch cannot be using when the condition is string
 
-                break;
-            case "rain":
-
-                break;
-
-            case "snow":
-
-                break;
-
-            case "sleet":
-
-                break;
-
-            case "wind":
-
-                break;
-
-            case "fog":
-
-                break;
-
-            case "cloudy":
-
-                break;
-
-            case "partly-cloudy-day":
-
-                break;
-
-            case "partly-cloudy-night":
-
-                break;
-
+        if (temperatureBackground.equals("clear-day")){
+            Resources clearDayRes = this.getResources();
+            Drawable clearDaydrawable;
+            clearDaydrawable = clearDayRes.getDrawable(R.drawable.testpicture);
+            homeLayout.setBackground(clearDaydrawable);
+        }else {//// TODO: 15/11/8 change the else to else if and add clear-night, wind, snow......conditions and find the picture witch match the weather conitions
+            Resources clearNightRes = this.getResources();
+            Drawable clearNightdrawable;
+            clearNightdrawable = clearNightRes.getDrawable(R.drawable.testpicture);
+            homeLayout.setBackground(clearNightdrawable);
         }
+
 
         Drawable drawable = getResources().getDrawable(mCurrentWeather.getIconId());
         mIconImageView.setImageDrawable(drawable);
