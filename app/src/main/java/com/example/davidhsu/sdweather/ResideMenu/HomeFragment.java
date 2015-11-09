@@ -206,11 +206,13 @@ public class HomeFragment extends Fragment {
             Drawable clearDaydrawable;
             clearDaydrawable = clearDayRes.getDrawable(R.drawable.testpicture);
             homeLayout.setBackground(clearDaydrawable);
-        }else {//// TODO: 15/11/8 change the else to else if and add clear-night, wind, snow......conditions and find the picture witch match the weather conitions
+        }else if(temperatureBackground.equals("clear-night")) {//// TODO: 15/11/8 change the else to else if and add clear-night, wind, snow......conditions and find the picture witch match the weather conitions
             Resources clearNightRes = this.getResources();
             Drawable clearNightdrawable;
             clearNightdrawable = clearNightRes.getDrawable(R.drawable.testpicture);
             homeLayout.setBackground(clearNightdrawable);
+        }else if (temperatureBackground.equals("winds")){
+            
         }
 
 
