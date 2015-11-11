@@ -191,7 +191,7 @@ public class HomeFragment extends Fragment {
 
     private void updateDisplay() {
         mTemperatureLabel.setText(mCurrentWeather.getTemperature() +"");
-        mTimeLabel.setText("At " + mCurrentWeather.getFormattedTime() + "it will be");
+        mTimeLabel.setText("At  " + mCurrentWeather.getFormattedTime() + "it will be");
         mHumidityValue.setText(mCurrentWeather.getHumidity() + " %");
         mPrecipValue.setText(mCurrentWeather.getPrecipChance() + "%");
         mSummaryLabel.setText(mCurrentWeather.getSummary());
@@ -211,8 +211,27 @@ public class HomeFragment extends Fragment {
             Drawable clearNightdrawable;
             clearNightdrawable = clearNightRes.getDrawable(R.drawable.testpicture);
             homeLayout.setBackground(clearNightdrawable);
-        }else if (temperatureBackground.equals("winds")){
-            
+        }else if (temperatureBackground.equals("rain")){
+
+        }else if (temperatureBackground.equals("snow")){
+
+        }else if (temperatureBackground.equals("sleet")){
+
+        }else if (temperatureBackground.equals("wind")){
+
+        }else if (temperatureBackground.equals("fog")){
+
+        }else if (temperatureBackground.equals("cloudy")){
+
+        }else if (temperatureBackground.equals("partly-cloudy-day")){
+
+        }else if (temperatureBackground.equals("partly-cloudy-night")) {
+
+        }else{
+            Resources defaultRes = this.getResources();
+            Drawable defaultDrawable;
+            defaultDrawable = defaultRes.getDrawable(R.drawable.defaultpicture);
+            homeLayout.setBackground(defaultDrawable);
         }
 
 
