@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
     private void getForecast(double latitude, double longitude) {
         String apiKey = "d405c6cfa70d6a1489f2a63e7d484bf1";
 
-        String forecastUrl = "https://api.forecast.io/forecast/" + apiKey + "/"+ latitude + "," + longitude;
+        String forecastUrl = "https://api.forecast.io/forecast/" + apiKey + "/"+ latitude + "," + longitude + "?lang=zh-tw";
 
 
 
@@ -190,7 +190,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void updateDisplay() {
-        //// TODO: 15/11/13 Translate the weather information into Chinese.
         mTemperatureLabel.setText(mCurrentWeather.getTemperature() +"");
         mTimeLabel.setText("At  " + mCurrentWeather.getFormattedTime() + "it will be");
         mHumidityValue.setText(mCurrentWeather.getHumidity() + " %");
