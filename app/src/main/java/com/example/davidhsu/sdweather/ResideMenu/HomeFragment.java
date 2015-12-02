@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
     private void getForecast(double latitude, double longitude) {
         String apiKey = "d405c6cfa70d6a1489f2a63e7d484bf1";
 
-        String forecastUrl = "https://api.forecast.io/forecast/" + apiKey + "/"+ latitude + "," + longitude;
+        String forecastUrl = "https://api.forecast.io/forecast/" + apiKey + "/"+ latitude + "," + longitude + "?lang=zh-tw";
 
 
 
@@ -191,26 +191,69 @@ public class HomeFragment extends Fragment {
 
     private void updateDisplay() {
         mTemperatureLabel.setText(mCurrentWeather.getTemperature() +"");
-        mTimeLabel.setText("At " + mCurrentWeather.getFormattedTime() + "it will be");
+        mTimeLabel.setText("At  " + mCurrentWeather.getFormattedTime() + "it will be");
         mHumidityValue.setText(mCurrentWeather.getHumidity() + " %");
         mPrecipValue.setText(mCurrentWeather.getPrecipChance() + "%");
         mSummaryLabel.setText(mCurrentWeather.getSummary());
         mLocationLabel.setText(mCurrentWeather.getTimeZone());
 
-        temperatureBackground.equals(mCurrentWeather.getIcon());
-        // // TODO: 15/11/4  using if else to set the condition and set the background for the HomeFragment
+
+
         //switch cannot be using when the condition is string
+
+        //set the background for the homeFragment
+        temperatureBackground = mCurrentWeather.getIcon();
 
         if (temperatureBackground.equals("clear-day")){
             Resources clearDayRes = this.getResources();
             Drawable clearDaydrawable;
             clearDaydrawable = clearDayRes.getDrawable(R.drawable.testpicture);
             homeLayout.setBackground(clearDaydrawable);
-        }else {//// TODO: 15/11/8 change the else to else if and add clear-night, wind, snow......conditions and find the picture witch match the weather conitions
+        }else if(temperatureBackground.equals("clear-night")) {
             Resources clearNightRes = this.getResources();
             Drawable clearNightdrawable;
             clearNightdrawable = clearNightRes.getDrawable(R.drawable.testpicture);
             homeLayout.setBackground(clearNightdrawable);
+        }else if (temperatureBackground.equals("rain")){
+            Resources rainRes = this.getResources();
+            Drawable rainDrawable;
+            rainDrawable = rainRes.getDrawable(R.drawable.rainpicture);
+            homeLayout.setBackground(rainDrawable);
+        }else if (temperatureBackground.equals("snow")){
+            Resources snowRes = this.getResources();
+            Drawable snowDrawable;
+            snowDrawable = snowRes.getDrawable(R.drawable.snowpicture);
+            homeLayout.setBackground(snowDrawable);
+        }else if (temperatureBackground.equals("sleet")){
+            Resources sleetRes = this.getResources();
+            Drawable sleetDrawable;
+            sleetDrawable = sleetRes.getDrawable(R.drawable.sleetpicture);
+            homeLayout.setBackground(sleetDrawable);
+        }else if (temperatureBackground.equals("wind")){
+            Resources windRes = this.getResources();
+            Drawable windDrawable = windRes.getDrawable(R.drawable.windpicture);
+            homeLayout.setBackground(windDrawable);
+        }else if (temperatureBackground.equals("fog")){
+            Resources fogRes = this.getResources();
+            Drawable fogDrawable = fogRes.getDrawable(R.drawable.fogpicture);
+            homeLayout.setBackground(fogDrawable);
+        }else if (temperatureBackground.equals("cloudy")){
+            Resources cloudyRes = this.getResources();
+            Drawable cloudyDrawable = cloudyRes.getDrawable(R.drawable.cloudypicture);
+            homeLayout.setBackground(cloudyDrawable);
+        }else if (temperatureBackground.equals("partly-cloudy-day")){
+            Resources partlyCloudyDayRes = this.getResources();
+            Drawable partlyCloudyDayDrawable = partlyCloudyDayRes.getDrawable(R.drawable.partlycloudydaypicture);
+            homeLayout.setBackground(partlyCloudyDayDrawable);
+        }else if (temperatureBackground.equals("partly-cloudy-night")) {
+            Resources partlyCloudyNightRes = this.getResources();
+            Drawable partlyCloudyNightDrawable = partlyCloudyNightRes.getDrawable(R.drawable.partlycloudnightpicture);
+            homeLayout.setBackground(partlyCloudyNightDrawable);
+        }else{
+            Resources defaultRes = this.getResources();
+            Drawable defaultDrawable;
+            defaultDrawable = defaultRes.getDrawable(R.drawable.defaultpicture);
+            homeLayout.setBackground(defaultDrawable);
         }
 
 
