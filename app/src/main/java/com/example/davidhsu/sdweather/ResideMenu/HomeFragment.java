@@ -217,12 +217,12 @@ public class HomeFragment extends Fragment {
         }else if (temperatureBackground.equals("rain")){
             Resources rainRes = this.getResources();
             Drawable rainDrawable;
-            rainDrawable = rainRes.getDrawable(R.drawable.rainpicture);
+            rainDrawable = rainRes.getDrawable(R.drawable.rainpicturechangesize);
             homeLayout.setBackground(rainDrawable);
         }else if (temperatureBackground.equals("snow")){
             Resources snowRes = this.getResources();
             Drawable snowDrawable;
-            snowDrawable = snowRes.getDrawable(R.drawable.snowpicture);
+            snowDrawable = snowRes.getDrawable(R.drawable.snowpicturechangesize);
             homeLayout.setBackground(snowDrawable);
         }else if (temperatureBackground.equals("sleet")){
             Resources sleetRes = this.getResources();
@@ -231,28 +231,28 @@ public class HomeFragment extends Fragment {
             homeLayout.setBackground(sleetDrawable);
         }else if (temperatureBackground.equals("wind")){
             Resources windRes = this.getResources();
-            Drawable windDrawable = windRes.getDrawable(R.drawable.windpicture);
+            Drawable windDrawable = windRes.getDrawable(R.drawable.windpicturechangesize);
             homeLayout.setBackground(windDrawable);
         }else if (temperatureBackground.equals("fog")){
             Resources fogRes = this.getResources();
-            Drawable fogDrawable = fogRes.getDrawable(R.drawable.fogpicture);
+            Drawable fogDrawable = fogRes.getDrawable(R.drawable.fogpicturechangesize);
             homeLayout.setBackground(fogDrawable);
         }else if (temperatureBackground.equals("cloudy")){
             Resources cloudyRes = this.getResources();
-            Drawable cloudyDrawable = cloudyRes.getDrawable(R.drawable.cloudypicture);
+            Drawable cloudyDrawable = cloudyRes.getDrawable(R.drawable.cloudypicturechangesize);
             homeLayout.setBackground(cloudyDrawable);
         }else if (temperatureBackground.equals("partly-cloudy-day")){
             Resources partlyCloudyDayRes = this.getResources();
-            Drawable partlyCloudyDayDrawable = partlyCloudyDayRes.getDrawable(R.drawable.partlycloudydaypicture);
+            Drawable partlyCloudyDayDrawable = partlyCloudyDayRes.getDrawable(R.drawable.partlycloudydaypicturechangesize);
             homeLayout.setBackground(partlyCloudyDayDrawable);
         }else if (temperatureBackground.equals("partly-cloudy-night")) {
             Resources partlyCloudyNightRes = this.getResources();
-            Drawable partlyCloudyNightDrawable = partlyCloudyNightRes.getDrawable(R.drawable.partlycloudnightpicture);
+            Drawable partlyCloudyNightDrawable = partlyCloudyNightRes.getDrawable(R.drawable.partycloudynightchangesize);
             homeLayout.setBackground(partlyCloudyNightDrawable);
         }else{
             Resources defaultRes = this.getResources();
             Drawable defaultDrawable;
-            defaultDrawable = defaultRes.getDrawable(R.drawable.defaultpicture);
+            defaultDrawable = defaultRes.getDrawable(R.drawable.defaultpicturechangesize);
             homeLayout.setBackground(defaultDrawable);
         }
 
